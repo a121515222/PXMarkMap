@@ -1,4 +1,5 @@
 import Papa from "papaparse";
+import goodsId from "./goods";
 let map;
 let markers = {};
 let infoWindow;
@@ -8,7 +9,7 @@ let userLocation = null; // 儲存使用者位置
 const DEFAULT_LOCATION = { lat: 25.0330, lng: 121.5654 }; // 預設台北位置
 // Google Sheet ID 和多分頁 GID
 const sheetId = import.meta.env.VITE_GOOGLE_SHEET_ID
-const sheetGids = JSON.parse(import.meta.env.VITE_GOODS_LIST);
+
 // 取得使用者位置
 const googleMapApiKey = import.meta.env.VITE_GOOGLE_MAP_KEY;
 function getUserLocation() {
@@ -134,7 +135,7 @@ async function handleLoadData() {
     allStoreRows = [];
     headerRow = [];
 
-    for (let sheet of sheetGids) {
+    for (let sheet of goodsId) {
         const url = `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&id=${sheetId}&gid=${sheet.gid}`;
         await new Promise(resolve => {
             Papa.parse(url, {
@@ -301,7 +302,6 @@ async function displayStores(storeRows) {
                 }
 
                 const place = result.places[0];
-                console.log(`Creating marker for ${storeName} at:`, place.location);
 
                 // 使用傳統的 google.maps.Marker
                 const marker = new google.maps.Marker({
