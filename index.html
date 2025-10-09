@@ -13,7 +13,7 @@
   <body class="flex flex-col sm:flex-row h-screen bg-gray-100">
     <button
       id="toggle-sidebar-btn"
-      class="ms:hidden z-10 fixed top-1/2 right-2 -translate-y-1/2 bg-blue-500 text-white px-2 py-1 rounded-md"
+      class="sm:hidden z-10 fixed top-1/2 right-2 -translate-y-1/2 bg-blue-500 text-white px-2 py-1 rounded-md"
     >
       <i class="material-icons">menu</i>
     </button>
@@ -24,6 +24,7 @@
       <div class="p-4 border-b">
         <h1 class="text-lg sm:text-xl font-bold text-gray-800">全聯出貨店家</h1>
       </div>
+
       <div class="p-4 border-b">
         <button
           id="my-location-btn"
@@ -33,7 +34,7 @@
           移動到我的位置
         </button>
       </div>
-      <div id="store-list-container" class="overflow-y-auto flex-grow hidden">
+      <div id="store-list-container" class="overflow-y-auto flex-grow hidden sm:block">
         <div class="p-2 bg-blue-50 border-b text-sm text-gray-600">
           <i class="material-icons text-sm align-middle">info</i>
           點擊店家名稱可查看詳細資訊
