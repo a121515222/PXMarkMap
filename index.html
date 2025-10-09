@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Google Sheet 全聯出貨地圖</title>
+    <title>全聯出貨地圖</title>
     <link href="./src/styles.css" rel="stylesheet" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -26,44 +26,6 @@
       </div>
       <div class="p-4 border-b">
         <button
-          id="load-sheet-btn"
-          class="bg-green-500 text-white px-3 py-2 rounded-md hover:bg-green-600 flex items-center justify-center w-full"
-        >
-          載入 Google Sheet 資料
-        </button>
-        <div id="url-error" class="text-sm mt-2 text-red-600 h-5"></div>
-      </div>
-      <div
-        id="search-container"
-        class="p-4 bg-gray-50 border-b border-gray-200 hidden"
-      >
-        <h2 class="text-base sm:text-lg font-semibold mb-2 text-gray-700">
-          依產品搜尋
-        </h2>
-        <div class="flex gap-2">
-          <input
-            type="text"
-            id="product-search-input"
-            placeholder="例如: A產品"
-            class="flex-grow p-2 border rounded-md focus:ring-blue-500 focus:border-blue-500 text-sm sm:text-base"
-          />
-          <button
-            id="search-btn"
-            class="bg-blue-500 text-white px-3 py-2 rounded-md hover:bg-blue-600 flex items-center justify-center"
-          >
-            <i class="material-icons text-base">search</i>
-          </button>
-          <button
-            id="clear-btn"
-            class="bg-gray-500 text-white px-3 py-2 rounded-md hover:bg-gray-600 flex items-center justify-center"
-          >
-            <i class="material-icons text-base">clear</i>
-          </button>
-        </div>
-        <div id="search-status" class="text-sm mt-2 text-gray-600 h-5"></div>
-      </div>
-      <div class="p-4 border-b">
-        <button
           id="my-location-btn"
           class="bg-blue-500 text-white px-3 py-2 rounded-md hover:bg-blue-600 flex items-center justify-center w-full"
         >
@@ -72,23 +34,20 @@
         </button>
       </div>
       <div id="store-list-container" class="overflow-y-auto flex-grow hidden">
+        <div class="p-2 bg-blue-50 border-b text-sm text-gray-600">
+          <i class="material-icons text-sm align-middle">info</i>
+          點擊店家名稱可查看詳細資訊
+        </div>
         <div id="store-list" class=""></div>
       </div>
-      <div
-        id="error-log-container"
-        class="overflow-y-auto max-h-40 p-4 border-t bg-red-50"
-      >
-        <h3 id="error-title" class="font-bold text-red-800 mb-2 hidden">
-          無法定位的店家:
-        </h3>
-        <div id="error-log" class="text-sm text-red-700"></div>
-      </div>
+
     </div>
-    <div id="map-container" class="flex-1 h-1/2 ms:h-full relative">
+    <div id="map-container" class="flex-1 h-1/2 sm:h-full relative">
       <div id="map" class="w-full h-full"></div>
       <div
         id="loading-overlay"
-        class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center z-10 hidden"
+        class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center z-10"
+        style="display: none;"
       >
         <div class="text-center">
           <div class="loader"></div>
